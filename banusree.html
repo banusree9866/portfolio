@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of A. Banusree, a Computer Science Engineering student specializing in AI and Machine Learning.">
+  <title>A. Banusree | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #1e1f21;
+      --surface: #26282b;
+      --surface-2: #2d2f33;
+      --text: #f5f1ea;
+      --muted: #cfc7bb;
+      --accent: #c4ab83;
+      --border: #3a3c40;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    p, li {
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(30, 31, 33, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 5%;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 110px;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-subtitle {
+      color: var(--accent);
+      font-size: 16px;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      max-width: 650px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      display: inline-block;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1e1f21;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .about-box,
+    .exp-card,
+    .project-card,
+    .cert-card,
+    .skill-category {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .skill-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .exp-grid,
+    .project-grid,
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card ul,
+    .exp-card ul {
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+
+    .project-card li,
+    .exp-card li {
+      margin-bottom: 8px;
+    }
+
+    .tech {
+      color: var(--accent);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .cert-card {
+      text-align: center;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: border-color 0.3s, transform 0.3s;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .contact-link i {
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .footer-icons a {
+      font-size: 20px;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .footer-icons a:hover {
+      color: var(--accent);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 5%;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 10px 16px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 85vh;
+        padding-top: 160px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: 92%;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .btn-group {
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 10px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a class="logo" href="#home">A. Banusree</a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <h1>Hi, I'm A. Banusree</h1>
+
+        <div class="hero-subtitle">
+          Computer Science Engineering Student | AI &amp; Machine Learning
+        </div>
+
+        <p>
+          Passionate about building practical software solutions and
+          user-friendly web applications. Interested in software development,
+          problem-solving, and emerging technologies.
+        </p>
+
+        <div class="btn-group">
+          <a class="btn btn-primary" href="#projects">View My Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About</h2>
+
+        <div class="about-box">
+          <p>
+            I am a Computer Science Engineering student specializing in
+            Artificial Intelligence and Machine Learning at Mohan Babu
+            University. I have experience in Java programming and web
+            development through internships. I enjoy learning new technologies,
+            solving problems, and building useful applications. I am looking
+            for opportunities to apply my skills, gain practical experience,
+            and grow as a software developer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2>Technical Skills</h2>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-list">
+              <span class="skill-badge">Java</span>
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">C</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Web Development</h3>
+            <div class="skill-list">
+              <span class="skill-badge">HTML</span>
+              <span class="skill-badge">CSS</span>
+              <span class="skill-badge">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Database</h3>
+            <div class="skill-list">
+              <span class="skill-badge">MySQL</span>
+              <span class="skill-badge">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Tools</h3>
+            <div class="skill-list">
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">GitHub</span>
+              <span class="skill-badge">VS Code</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Core Concepts</h3>
+            <div class="skill-list">
+              <span class="skill-badge">Object-Oriented Programming</span>
+              <span class="skill-badge">Data Structures</span>
+              <span class="skill-badge">DBMS</span>
+              <span class="skill-badge">Operating Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2>Experience</h2>
+
+        <div class="exp-grid">
+          <article class="exp-card">
+            <h3>Java Development Intern — Code Alpha</h3>
+            <ul>
+              <li>Participated in Java programming internship activities.</li>
+              <li>Focused on programming concepts and practical development tasks.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card">
+            <h3>Web Development Intern — Oasis Infobyte</h3>
+            <ul>
+              <li>Completed web development and design internship tasks.</li>
+              <li>Worked with front-end technologies to build web pages.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Student Management System</h3>
+            <div class="tech">Java • MySQL</div>
+            <ul>
+              <li>Designed an application concept for managing student records.</li>
+              <li>Planned functions to add, update, delete, and search student information.</li>
+              <li>Used MySQL as the database technology.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>Online Book Store</h3>
+            <div class="tech">HTML • CSS • JavaScript</div>
+            <ul>
+              <li>Created a web application concept for browsing and searching books.</li>
+              <li>Designed responsive pages using HTML and CSS.</li>
+              <li>Used JavaScript for basic user interactions.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <h2>Certifications</h2>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <h3>Java Development</h3>
+            <p>Code Alpha</p>
+          </article>
+
+          <article class="cert-card">
+            <h3>SQL Fundamentals</h3>
+            <p>Coursera</p>
+          </article>
+
+          <article class="cert-card">
+            <h3>Java Full Stack Development</h3>
+            <p>EduSkills</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+
+        <div class="contact-wrapper">
+          <a class="contact-link"
+             href="mailto:banusree9866@gmail.com"
+             aria-label="Send an email to Banusree">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <div>
+              <h3>Email</h3>
+              <p>banusree9866@gmail.com</p>
+            </div>
+          </a>
+
+          <a class="contact-link"
+             href="https://www.linkedin.com/in/a-banusree-554404332"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Visit LinkedIn profile">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            <div>
+              <h3>LinkedIn</h3>
+              <p>View Profile</p>
+            </div>
+          </a>
+
+          <a class="contact-link"
+             href="https://github.com/banusree9866"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Visit GitHub profile">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <div>
+              <h3>GitHub</h3>
+              <p>Explore Repositories</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Designed and built by A. Banusree</p>
+
+      <div class="footer-icons">
+        <a href="mailto:banusree9866@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/a-banusree-554404332"
+           target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://github.com/banusree9866"
+           target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
